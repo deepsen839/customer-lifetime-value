@@ -113,7 +113,7 @@
         "treated_rows": 536,
         "control_rows": 532,
         "observed_incremental_response_rate": 0.09047806082370102,
-        "mean_predicted_uplift": 0.1924163814856873
+        "mean_predicted_uplift": 0.19241638148568727
       },
       {
         "targeted_fraction": 0.2,
@@ -121,7 +121,7 @@
         "treated_rows": 1074,
         "control_rows": 1061,
         "observed_incremental_response_rate": 0.0703141865742764,
-        "mean_predicted_uplift": 0.1597471513779407
+        "mean_predicted_uplift": 0.15974715137794068
       },
       {
         "targeted_fraction": 0.3,
@@ -129,7 +129,7 @@
         "treated_rows": 1609,
         "control_rows": 1594,
         "observed_incremental_response_rate": 0.05294793324563135,
-        "mean_predicted_uplift": 0.13817387605045472
+        "mean_predicted_uplift": 0.1381738760504547
       },
       {
         "targeted_fraction": 0.5,
