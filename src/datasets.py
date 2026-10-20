@@ -77,15 +77,31 @@ def get_telco():
     return d
 
 def get_hillstrom():
-    p = download(URLS["hillstrom"], DATA/"hillstrom.csv")
+    # Prefer the copy downloaded successfully through scikit-uplift.
+    local_path = DATA / "hillstrom_sklift.csv"
+    if local_path.exists() and local_path.stat().st_size > 0:
+        p = local_path
+    else:
+        p = download(URLS["hillstrom"], DATA / "hillstrom.csv")
+
     d = pd.read_csv(p)
-    if not {"segment","visit"}.issubset(d.columns):
-        raise ValueError("Unexpected Hillstrom schema")
-    d["treatment"] = d["segment"].map({"Mens E-Mail": 1, "Womens E-Mail": 1, "No E-Mail": 0})
-    for col in ("visit", "conversion"):
-        if col in d: d[col] = pd.to_numeric(d[col], errors="coerce").fillna(0).astype(int)
+    if not {"segment", "visit"}.issubset(d.columns):
+        raise ValueError(
+            "Hillstrom data must contain observed 'segment' and 'visit' columns"
+        )
+
+    d["treatment"] = d["segment"].map({
+        "Mens E-Mail": 1,
+        "Womens E-Mail": 1,
+        "No E-Mail": 0,
+    })
+    d["visit"] = pd.to_numeric(d["visit"], errors="coerce")
+    if d["visit"].isna().any() or not d["visit"].isin([0, 1]).all():
+        raise ValueError("Hillstrom visit outcome must contain only 0/1 values")
     if d["treatment"].isna().any():
         raise ValueError("Unexpected Hillstrom segment values")
+
+    d["visit"] = d["visit"].astype(int)
     d["campaign_row_id"] = range(1, len(d) + 1)
     return d
 

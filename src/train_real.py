@@ -48,10 +48,16 @@ def main():
     hillstrom = hillstrom[hillstrom["segment"].isin(["Womens E-Mail", "No E-Mail"])].copy()
     hillstrom["treatment"] = (hillstrom["segment"] == "Womens E-Mail").astype(int)
     uplift_features = [c for c in ["recency", "history", "mens", "womens", "newbie"] if c in hillstrom]
-    if "conversion" not in hillstrom:
-        raise ValueError("Hillstrom dataset must contain conversion outcome for offer-profitability modeling")
+    # The scikit-uplift copy provides observed visit outcomes, not conversion/spend.
+    # Train and report visit-response uplift; do not fabricate conversion labels.
+    if "visit" not in hillstrom:
+        raise ValueError("Hillstrom dataset must contain the observed visit outcome")
     uplift_model, uplift_test, uplift_summary = fit_causalml_t_learner(
-        hillstrom, uplift_features, "treatment", "conversion", seed=42)
+        hillstrom, uplift_features, "treatment", "visit", seed=42)
+    uplift_summary["outcome"] = "visit"
+    uplift_summary["outcome_interpretation"] = (
+        "Observed visit response; not conversion or revenue uplift"
+    )
     # Test predictions remain separate from full-population targeting scores.
     uplift_test.to_csv(ART / "hillstrom_uplift_test_scored.csv", index=False)
     uplift_scores = score_uplift_customers(uplift_model, hillstrom, uplift_features)

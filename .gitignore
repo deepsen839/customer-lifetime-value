@@ -25,3 +25,10 @@ venv/
 
 # Streamlit local secrets (never commit credentials)
 .streamlit/secrets.toml
+
+myenv/
+.venv/
+__pycache__/
+*.pyc
+.env
+.streamlit/secrets.toml
