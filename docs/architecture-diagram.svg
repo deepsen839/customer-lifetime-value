@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Customer Lifetime Value and Churn Intelligence architecture</title>
+<desc id="desc">Three public datasets flow through validation and feature engineering to PostgreSQL and separate churn, uplift, retail CLV, segmentation, and survival modeling pipelines. The Streamlit dashboard and FastAPI serve results and ROI simulations.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#536579"/></marker>
+  <style>
+    .node{fill:#f7fafc;stroke:#5b7188;stroke-width:1.7;rx:12;ry:12}
+    .dataset{fill:#e9f4ff;stroke:#3478a8;stroke-width:1.7;rx:12;ry:12}
+    .model{fill:#edf8f0;stroke:#3d8661;stroke-width:1.7;rx:12;ry:12}
+    .serve{fill:#fff5e7;stroke:#b77a2b;stroke-width:1.7;rx:12;ry:12}
+    .label{font-family:Arial,sans-serif;font-size:17px;fill:#152536;text-anchor:middle}
+    .small{font-family:Arial,sans-serif;font-size:14px;fill:#33485d;text-anchor:middle}
+    .edge{stroke:#536579;stroke-width:2;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1200" height="760" fill="#ffffff"/>
+<text x="600" y="36" font-family="Arial,sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#142536">Customer Lifetime Value &amp; Churn Intelligence</text>
+<!-- data -->
+<rect class="dataset" x="35" y="75" width="345" height="82"/>
+<text class="label" x="207" y="105">IBM Telco Customer Churn</text><text class="small" x="207" y="130">Churn labels, tenure, charges, services</text>
+<rect class="dataset" x="427" y="75" width="345" height="82"/>
+<text class="label" x="600" y="105">Hillstrom Email Campaign</text><text class="small" x="600" y="130">Randomized email treatment and conversion</text>
+<rect class="dataset" x="820" y="75" width="345" height="82"/>
+<text class="label" x="992" y="105">UCI Online Retail II</text><text class="small" x="992" y="130">Transactions, customer revenue and dates</text>
+<!-- ingest -->
+<rect class="node" x="360" y="195" width="480" height="68"/>
+<text class="label" x="600" y="223">Download / validate / normalize</text><text class="small" x="600" y="245">Data-quality checks, provenance, leakage-safe cutoffs</text>
+<path class="edge" d="M207 157 L207 178 L450 178 L450 195"/><path class="edge" d="M600 157 L600 195"/><path class="edge" d="M992 157 L992 178 L750 178 L750 195"/>
+<rect class="node" x="420" y="300" width="360" height="65"/>
+<text class="label" x="600" y="328">PostgreSQL</text><text class="small" x="600" y="350">Normalized analytical tables and scores</text>
+<path class="edge" d="M600 263 L600 300"/>
+<!-- models -->
+<rect class="model" x="25" y="410" width="260" height="100"/>
+<text class="label" x="155" y="440">Churn classifier</text><text class="small" x="155" y="463">LightGBM + SHAP</text><text class="small" x="155" y="485">ROC-AUC, PR-AUC, Brier</text>
+<rect class="model" x="315" y="410" width="260" height="100"/>
+<text class="label" x="445" y="440">Uplift modeling</text><text class="small" x="445" y="463">CausalML / T-learner</text><text class="small" x="445" y="485">Held-out treatment effects</text>
+<rect class="model" x="605" y="410" width="260" height="100"/>
+<text class="label" x="735" y="440">Retail CLV + segments</text><text class="small" x="735" y="463">90-day revenue forecast</text><text class="small" x="735" y="485">KMeans and mean baseline</text>
+<rect class="model" x="895" y="410" width="280" height="100"/>
+<text class="label" x="1035" y="440">Survival analysis</text><text class="small" x="1035" y="463">Kaplan–Meier + Cox</text><text class="small" x="1035" y="485">90-day inactivity proxy</text>
+<path class="edge" d="M500 365 L500 385 L155 385 L155 410"/><path class="edge" d="M550 365 L550 390 L445 390 L445 410"/><path class="edge" d="M650 365 L650 410"/><path class="edge" d="M700 365 L700 385 L1035 385 L1035 410"/>
+<!-- serving -->
+<rect class="serve" x="170" y="570" width="360" height="90"/>
+<text class="label" x="350" y="602">FastAPI</text><text class="small" x="350" y="625">Health, churn prediction, survival, ROI</text><text class="small" x="350" y="645">OpenAPI docs at /docs</text>
+<rect class="serve" x="670" y="570" width="360" height="90"/>
+<text class="label" x="850" y="602">Streamlit dashboard</text><text class="small" x="850" y="625">Model summaries, segments and ROI simulator</text><text class="small" x="850" y="645">Interactive scenario assumptions</text>
+<path class="edge" d="M155 510 L155 540 L350 540 L350 570"/><path class="edge" d="M445 510 L445 545 L350 545 L350 570"/><path class="edge" d="M735 510 L735 540 L850 540 L850 570"/><path class="edge" d="M1035 510 L1035 545 L850 545 L850 570"/>
+<text x="600" y="710" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#526476">Important: datasets serve different purposes; Hillstrom uplift is not telecom retention lift.</text>
+<text x="600" y="733" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#526476">Real-data model metrics must be generated by running src.train_real; no metrics are fabricated here.</text>
+</svg>

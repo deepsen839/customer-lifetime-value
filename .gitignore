@@ -1,0 +1,27 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Downloaded source datasets and generated intermediate files
+data/*
+!data/.gitkeep
+
+# Model artifacts and evaluation outputs (regenerate by running training)
+artifacts/*
+!artifacts/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Streamlit local secrets (never commit credentials)
+.streamlit/secrets.toml
