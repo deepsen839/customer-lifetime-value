@@ -1,0 +1,60 @@
+{
+  "model": "LightGBM",
+  "rows": 7043,
+  "train_rows": 5282,
+  "test_rows": 1761,
+  "test_churn_rate": 0.26519023282226006,
+  "roc_auc": 0.8405604519624424,
+  "pr_auc": 0.6458868288318775,
+  "precision_at_0_5": 0.5428134556574924,
+  "recall_at_0_5": 0.7601713062098501,
+  "f1_at_0_5": 0.6333630686886709,
+  "brier_score": 0.15549268162964486,
+  "confusion_matrix_labels_0_1": [
+    [
+      995,
+      299
+    ],
+    [
+      112,
+      355
+    ]
+  ],
+  "baseline_roc_auc": 0.5,
+  "baseline_pr_auc": 0.26519023282226006,
+  "beats_baseline_pr_auc": true,
+  "explanation_method": "SHAP",
+  "feature_importance": {
+    "cat__contract_Month-to-month": 0.8072618362274818,
+    "num__tenure_months": 0.5067244474211954,
+    "cat__online_security_No": 0.24848056325356455,
+    "num__total_charges": 0.19697337971157636,
+    "num__charges_per_tenure_month": 0.18405613723869035,
+    "num__monthly_charges": 0.17973693849595226,
+    "cat__tech_support_No": 0.17532416313909538,
+    "cat__contract_Two year": 0.1621113724111969,
+    "num__monthly_charge_per_service": 0.14913528870254933,
+    "cat__paperless_billing_No": 0.1390576571642752,
+    "cat__payment_method_Electronic check": 0.13366266547179095,
+    "cat__internet_service_Fiber optic": 0.13071696959856455,
+    "cat__multiple_lines_No": 0.12165869934632455,
+    "cat__contract_One year": 0.09450399544239346,
+    "cat__dependents_No": 0.09259537559722593,
+    "num__senior_citizen": 0.05522122087867353,
+    "cat__streaming_tv_Yes": 0.05470421554542637,
+    "cat__online_backup_No": 0.044743987131792985,
+    "cat__streaming_movies_Yes": 0.0430627379262567,
+    "cat__internet_service_DSL": 0.04124685651105983,
+    "cat__payment_method_Mailed check": 0.02719395183761462,
+    "cat__streaming_movies_No": 0.02703059428710029,
+    "cat__gender_Female": 0.024655514068763047,
+    "cat__payment_method_Bank transfer (automatic)": 0.018979676455330097,
+    "num__service_count": 0.014073259348025516,
+    "cat__streaming_tv_No": 0.013989159095764443,
+    "cat__payment_method_Credit card (automatic)": 0.013961656815546935,
+    "cat__multiple_lines_Yes": 0.012595148761551132,
+    "cat__partner_No": 0.010566332786452937,
+    "cat__phone_service_No": 0.010231985616574903
+  },
+  "threshold_note": "0.5 is a default reporting threshold; choose operating threshold on validation data based on campaign costs."
+}

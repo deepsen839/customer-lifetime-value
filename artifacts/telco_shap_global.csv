@@ -1,0 +1,49 @@
+feature,mean_abs_shap
+cat__contract_Month-to-month,0.8061721242461029
+num__tenure_months,0.5677724756349122
+cat__online_security_No,0.2442575082002018
+num__total_charges,0.2064164986950788
+num__charges_per_tenure_month,0.1874490279059296
+num__monthly_charges,0.18243986393167091
+cat__contract_Two year,0.1735482012206115
+cat__tech_support_No,0.1735248958021084
+num__monthly_charge_per_service,0.15776795327372042
+cat__paperless_billing_No,0.13424866292350499
+cat__internet_service_Fiber optic,0.1303736280896797
+cat__payment_method_Electronic check,0.12810596987197934
+cat__multiple_lines_No,0.11598570587845955
+cat__dependents_No,0.09741201149732222
+cat__contract_One year,0.0936698532169606
+cat__streaming_tv_Yes,0.054101638227634356
+cat__online_backup_No,0.04897008773648587
+cat__streaming_movies_Yes,0.044476321179096244
+num__senior_citizen,0.04037010113347702
+cat__internet_service_DSL,0.038129936118171864
+cat__payment_method_Mailed check,0.030312307347689867
+cat__gender_Female,0.02779501309162345
+cat__streaming_movies_No,0.025886485310243502
+cat__payment_method_Bank transfer (automatic),0.023230251108829803
+num__service_count,0.016273493683014277
+cat__phone_service_No,0.015028774533516497
+cat__payment_method_Credit card (automatic),0.013712568457053534
+cat__streaming_tv_No,0.01195878289488671
+cat__partner_No,0.011836922964732025
+cat__multiple_lines_Yes,0.0115511762404379
+cat__partner_Yes,0.010687003997290128
+cat__online_backup_Yes,0.010573336880273837
+cat__online_security_Yes,0.007759393466199005
+cat__tech_support_Yes,0.006764547515498147
+cat__device_protection_No,0.005554822260162019
+cat__paperless_billing_Yes,0.005549515925044076
+cat__gender_Male,0.0039822013784415675
+cat__device_protection_Yes,0.003085507095429126
+cat__dependents_Yes,0.002594451720817258
+cat__phone_service_Yes,0.002062565631409412
+cat__tech_support_No internet service,0.0
+cat__multiple_lines_No phone service,0.0
+cat__internet_service_No,0.0
+cat__online_security_No internet service,0.0
+cat__streaming_movies_No internet service,0.0
+cat__device_protection_No internet service,0.0
+cat__online_backup_No internet service,0.0
+cat__streaming_tv_No internet service,0.0

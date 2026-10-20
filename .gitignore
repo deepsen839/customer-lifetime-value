@@ -8,8 +8,8 @@ data/*
 !data/.gitkeep
 
 # Model artifacts and evaluation outputs (regenerate by running training)
-artifacts/*
-!artifacts/.gitkeep
+# artifacts/*
+# !artifacts/.gitkeep
 
 # Python
 __pycache__/

@@ -1,0 +1,28 @@
+{
+  "model": "HistGradientBoostingRegressor",
+  "target": "realized revenue in next 90 days",
+  "feature_cutoff_date": "2011-09-11",
+  "label_window_end_exclusive": "2011-12-10",
+  "horizon_days": 90,
+  "customers": 5281,
+  "train_customers": 3960,
+  "test_customers": 1321,
+  "contribution_margin_assumption": 0.3,
+  "annualized_clv_definition": "predicted 90-day revenue * 365 / horizon_days * assumed contribution margin",
+  "test_metrics": {
+    "mae": 584.7424170453833,
+    "rmse": 5084.993785040148,
+    "r2": 0.017837218426417945,
+    "mean_actual_90d_revenue": 627.8304996214988,
+    "mean_predicted_90d_revenue": 501.7370998803568
+  },
+  "mean_baseline_test_metrics": {
+    "mae": 814.3575467093341,
+    "rmse": 5131.395380974854,
+    "r2": -0.00016943333583485654,
+    "mean_actual_90d_revenue": 627.8304996214988,
+    "mean_predicted_90d_revenue": 561.0425484848485
+  },
+  "beats_baseline_mae": true,
+  "validation_note": "Random customer holdout within a strictly forward 90-day label window; not an out-of-time multi-period validation. Annualized contribution is a proxy, not a calibrated lifetime horizon."
+}

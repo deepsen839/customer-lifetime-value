@@ -1,0 +1,23 @@
+{
+  "median_survival_days": 468.0,
+  "median_survival_reached": true,
+  "event_definition": "90 days without valid purchase; this is a retail inactivity proxy, not contractual cancellation",
+  "dataset": "UCI Online Retail II",
+  "cox_concordance_index": 0.6157083950379236,
+  "n_customers": 5878,
+  "n_events": 2989,
+  "event_rate": 0.508506294658047,
+  "individual_predictions_file": "retail_individual_survival_summary.csv",
+  "curve_file": "retail_individual_survival_curves.csv",
+  "proportional_hazards_diagnostics": {
+    "baseline_orders": {
+      "test_statistic": 47.360254709876365,
+      "p_value": 5.90682941710284e-12
+    },
+    "baseline_revenue": {
+      "test_statistic": 1.9872883722184054,
+      "p_value": 0.15862469288135114
+    }
+  },
+  "proportional_hazards_assumption_warning": true
+}

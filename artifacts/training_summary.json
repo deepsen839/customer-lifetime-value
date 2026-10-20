@@ -1,0 +1,203 @@
+{
+  "churn": {
+    "model": "LightGBM",
+    "rows": 7043,
+    "train_rows": 5282,
+    "test_rows": 1761,
+    "test_churn_rate": 0.26519023282226006,
+    "roc_auc": 0.8405604519624424,
+    "pr_auc": 0.6458868288318775,
+    "precision_at_0_5": 0.5428134556574924,
+    "recall_at_0_5": 0.7601713062098501,
+    "f1_at_0_5": 0.6333630686886709,
+    "brier_score": 0.15549268162964486,
+    "confusion_matrix_labels_0_1": [
+      [
+        995,
+        299
+      ],
+      [
+        112,
+        355
+      ]
+    ],
+    "baseline_roc_auc": 0.5,
+    "baseline_pr_auc": 0.26519023282226006,
+    "beats_baseline_pr_auc": true,
+    "explanation_method": "SHAP",
+    "feature_importance": {
+      "cat__contract_Month-to-month": 0.8072618362274818,
+      "num__tenure_months": 0.5067244474211954,
+      "cat__online_security_No": 0.24848056325356455,
+      "num__total_charges": 0.19697337971157636,
+      "num__charges_per_tenure_month": 0.18405613723869035,
+      "num__monthly_charges": 0.17973693849595226,
+      "cat__tech_support_No": 0.17532416313909538,
+      "cat__contract_Two year": 0.1621113724111969,
+      "num__monthly_charge_per_service": 0.14913528870254933,
+      "cat__paperless_billing_No": 0.1390576571642752,
+      "cat__payment_method_Electronic check": 0.13366266547179095,
+      "cat__internet_service_Fiber optic": 0.13071696959856455,
+      "cat__multiple_lines_No": 0.12165869934632455,
+      "cat__contract_One year": 0.09450399544239346,
+      "cat__dependents_No": 0.09259537559722593,
+      "num__senior_citizen": 0.05522122087867353,
+      "cat__streaming_tv_Yes": 0.05470421554542637,
+      "cat__online_backup_No": 0.044743987131792985,
+      "cat__streaming_movies_Yes": 0.0430627379262567,
+      "cat__internet_service_DSL": 0.04124685651105983,
+      "cat__payment_method_Mailed check": 0.02719395183761462,
+      "cat__streaming_movies_No": 0.02703059428710029,
+      "cat__gender_Female": 0.024655514068763047,
+      "cat__payment_method_Bank transfer (automatic)": 0.018979676455330097,
+      "num__service_count": 0.014073259348025516,
+      "cat__streaming_tv_No": 0.013989159095764443,
+      "cat__payment_method_Credit card (automatic)": 0.013961656815546935,
+      "cat__multiple_lines_Yes": 0.012595148761551132,
+      "cat__partner_No": 0.010566332786452937,
+      "cat__phone_service_No": 0.010231985616574903
+    },
+    "threshold_note": "0.5 is a default reporting threshold; choose operating threshold on validation data based on campaign costs."
+  },
+  "clv": {
+    "model": "HistGradientBoostingRegressor",
+    "target": "realized revenue in next 90 days",
+    "feature_cutoff_date": "2011-09-11",
+    "label_window_end_exclusive": "2011-12-10",
+    "horizon_days": 90,
+    "customers": 5281,
+    "train_customers": 3960,
+    "test_customers": 1321,
+    "contribution_margin_assumption": 0.3,
+    "annualized_clv_definition": "predicted 90-day revenue * 365 / horizon_days * assumed contribution margin",
+    "test_metrics": {
+      "mae": 584.7424170453833,
+      "rmse": 5084.993785040148,
+      "r2": 0.017837218426417945,
+      "mean_actual_90d_revenue": 627.8304996214988,
+      "mean_predicted_90d_revenue": 501.7370998803568
+    },
+    "mean_baseline_test_metrics": {
+      "mae": 814.3575467093341,
+      "rmse": 5131.395380974854,
+      "r2": -0.00016943333583485654,
+      "mean_actual_90d_revenue": 627.8304996214988,
+      "mean_predicted_90d_revenue": 561.0425484848485
+    },
+    "beats_baseline_mae": true,
+    "validation_note": "Random customer holdout within a strictly forward 90-day label window; not an out-of-time multi-period validation. Annualized contribution is a proxy, not a calibrated lifetime horizon."
+  },
+  "uplift": {
+    "method": "CausalML BaseTClassifier",
+    "test_rows": 10674,
+    "mean_predicted_uplift": 0.04617604780005056,
+    "observed_test_treatment_rate": 0.15145848915482424,
+    "observed_test_control_rate": 0.10608336462636124,
+    "observed_test_difference": 0.045375124528463,
+    "observed_uplift_by_decile": {
+      "(-0.22, -0.0449]": 0.0033537269869780006,
+      "(-0.0449, -0.0168]": 0.05979479084451461,
+      "(-0.0168, 0.00449]": 0.037058939483540304,
+      "(0.00449, 0.0224]": 0.04604422604422605,
+      "(0.0224, 0.0401]": 0.055933930767879114,
+      "(0.0401, 0.0579]": 0.03850802484751385,
+      "(0.0579, 0.081]": 0.052116621851815356,
+      "(0.081, 0.109]": 0.020044391791603666,
+      "(0.109, 0.149]": 0.049037819638347885,
+      "(0.149, 0.357]": 0.09047806082370102
+    },
+    "cumulative_uplift_curve": [
+      {
+        "targeted_fraction": 0.1,
+        "targeted_rows": 1068,
+        "treated_rows": 536,
+        "control_rows": 532,
+        "observed_incremental_response_rate": 0.09047806082370102,
+        "mean_predicted_uplift": 0.1924163814856873
+      },
+      {
+        "targeted_fraction": 0.2,
+        "targeted_rows": 2135,
+        "treated_rows": 1074,
+        "control_rows": 1061,
+        "observed_incremental_response_rate": 0.0703141865742764,
+        "mean_predicted_uplift": 0.1597471513779407
+      },
+      {
+        "targeted_fraction": 0.3,
+        "targeted_rows": 3203,
+        "treated_rows": 1609,
+        "control_rows": 1594,
+        "observed_incremental_response_rate": 0.05294793324563135,
+        "mean_predicted_uplift": 0.13817387605045472
+      },
+      {
+        "targeted_fraction": 0.5,
+        "targeted_rows": 5337,
+        "treated_rows": 2705,
+        "control_rows": 2632,
+        "observed_incremental_response_rate": 0.04988131289012242,
+        "mean_predicted_uplift": 0.1063839082020705
+      },
+      {
+        "targeted_fraction": 0.75,
+        "targeted_rows": 8006,
+        "treated_rows": 4016,
+        "control_rows": 3990,
+        "observed_incremental_response_rate": 0.048616436509600694,
+        "mean_predicted_uplift": 0.07690381826121526
+      },
+      {
+        "targeted_fraction": 1.0,
+        "targeted_rows": 10674,
+        "treated_rows": 5348,
+        "control_rows": 5326,
+        "observed_incremental_response_rate": 0.045375124528463,
+        "mean_predicted_uplift": 0.04617604780005056
+      }
+    ],
+    "interpretation": "Held-out randomized-arm differences are noisy estimates, not individual causal effects; validate with experiment and confidence intervals.",
+    "outcome": "visit",
+    "outcome_interpretation": "Observed visit response; not conversion or revenue uplift"
+  },
+  "survival": {
+    "median_survival_days": 468.0,
+    "median_survival_reached": true,
+    "event_definition": "90 days without valid purchase; this is a retail inactivity proxy, not contractual cancellation",
+    "dataset": "UCI Online Retail II",
+    "cox_concordance_index": 0.6157083950379236,
+    "n_customers": 5878,
+    "n_events": 2989,
+    "event_rate": 0.508506294658047,
+    "individual_predictions_file": "retail_individual_survival_summary.csv",
+    "curve_file": "retail_individual_survival_curves.csv",
+    "proportional_hazards_diagnostics": {
+      "baseline_orders": {
+        "test_statistic": 47.360254709876365,
+        "p_value": 5.90682941710284e-12
+      },
+      "baseline_revenue": {
+        "test_statistic": 1.9872883722184054,
+        "p_value": 0.15862469288135114
+      }
+    },
+    "proportional_hazards_assumption_warning": true
+  },
+  "datasets": {
+    "ibm_telco": {
+      "rows": 7043,
+      "customers": 7043,
+      "loaded_for_training": true
+    },
+    "hillstrom_womens_email_vs_no_email": {
+      "rows": 42693,
+      "treatment_rows": 21387,
+      "loaded_for_training": true
+    },
+    "uci_online_retail_ii": {
+      "transaction_rows": 824364,
+      "customers": 5878,
+      "loaded_for_training": true
+    }
+  }
+}

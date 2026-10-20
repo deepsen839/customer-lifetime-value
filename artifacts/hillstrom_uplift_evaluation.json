@@ -1,0 +1,73 @@
+{
+  "method": "CausalML BaseTClassifier",
+  "test_rows": 10674,
+  "mean_predicted_uplift": 0.04617604780005056,
+  "observed_test_treatment_rate": 0.15145848915482424,
+  "observed_test_control_rate": 0.10608336462636124,
+  "observed_test_difference": 0.045375124528463,
+  "observed_uplift_by_decile": {
+    "(-0.22, -0.0449]": 0.0033537269869780006,
+    "(-0.0449, -0.0168]": 0.05979479084451461,
+    "(-0.0168, 0.00449]": 0.037058939483540304,
+    "(0.00449, 0.0224]": 0.04604422604422605,
+    "(0.0224, 0.0401]": 0.055933930767879114,
+    "(0.0401, 0.0579]": 0.03850802484751385,
+    "(0.0579, 0.081]": 0.052116621851815356,
+    "(0.081, 0.109]": 0.020044391791603666,
+    "(0.109, 0.149]": 0.049037819638347885,
+    "(0.149, 0.357]": 0.09047806082370102
+  },
+  "cumulative_uplift_curve": [
+    {
+      "targeted_fraction": 0.1,
+      "targeted_rows": 1068,
+      "treated_rows": 536,
+      "control_rows": 532,
+      "observed_incremental_response_rate": 0.09047806082370102,
+      "mean_predicted_uplift": 0.1924163814856873
+    },
+    {
+      "targeted_fraction": 0.2,
+      "targeted_rows": 2135,
+      "treated_rows": 1074,
+      "control_rows": 1061,
+      "observed_incremental_response_rate": 0.0703141865742764,
+      "mean_predicted_uplift": 0.1597471513779407
+    },
+    {
+      "targeted_fraction": 0.3,
+      "targeted_rows": 3203,
+      "treated_rows": 1609,
+      "control_rows": 1594,
+      "observed_incremental_response_rate": 0.05294793324563135,
+      "mean_predicted_uplift": 0.13817387605045472
+    },
+    {
+      "targeted_fraction": 0.5,
+      "targeted_rows": 5337,
+      "treated_rows": 2705,
+      "control_rows": 2632,
+      "observed_incremental_response_rate": 0.04988131289012242,
+      "mean_predicted_uplift": 0.1063839082020705
+    },
+    {
+      "targeted_fraction": 0.75,
+      "targeted_rows": 8006,
+      "treated_rows": 4016,
+      "control_rows": 3990,
+      "observed_incremental_response_rate": 0.048616436509600694,
+      "mean_predicted_uplift": 0.07690381826121526
+    },
+    {
+      "targeted_fraction": 1.0,
+      "targeted_rows": 10674,
+      "treated_rows": 5348,
+      "control_rows": 5326,
+      "observed_incremental_response_rate": 0.045375124528463,
+      "mean_predicted_uplift": 0.04617604780005056
+    }
+  ],
+  "interpretation": "Held-out randomized-arm differences are noisy estimates, not individual causal effects; validate with experiment and confidence intervals.",
+  "outcome": "visit",
+  "outcome_interpretation": "Observed visit response; not conversion or revenue uplift"
+}
